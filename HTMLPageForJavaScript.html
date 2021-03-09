@@ -1,0 +1,48 @@
+!DOCTYPE html
+
+html lang=en xmlns=httpwww.w3.org1999xhtml
+head
+    meta charset=utf-8 
+    titletitle
+
+    script type=textjavascript
+        Javascript function used to call C# medthod using Ctrl+P keys
+        function disableCtrlKeyCombination(e)
+        {
+            lists all the Ctrl+key combinations the program disables 
+            var key;
+            var isCtrl;
+            if (window.event)
+            {
+                key = window.keyCode;
+                if (window.event.ctrlKey) {
+                    isCtrl = true;
+                }
+                else
+                {
+                    isCtrl = false;
+                }
+            }
+
+            if (isCtrl) {
+                if (p == String.fromCharCode(key).toLowerCase())
+                {
+                    Calls C# method 
+                    window.external.PrintReport();
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        Calls disableCtrlKeyCombination on this method 
+        document.onkeydown = disableCtrlKeyCombination;
+
+        document.keypress = disableCtrlKeyCombination;
+    script
+head
+body
+    div id=reportContent
+    div
+body
+html
